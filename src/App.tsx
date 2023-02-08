@@ -1,11 +1,11 @@
-import MainPage from "./components/MainPage/MainPage";
+import MainPage from './components/MainPage/MainPage';
 
 function App() {
   return (
     <div className="App">
-      <MainPage/>
+      <MainPage />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
