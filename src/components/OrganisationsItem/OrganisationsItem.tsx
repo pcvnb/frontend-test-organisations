@@ -3,7 +3,7 @@ import cls from './OrganisationsItem.module.css';
 import EditIcon from '../../assets/edit.svg';
 import DeleteIcon from '../../assets/delete.svg';
 import EmptyLogo from '../../assets/emptyLogo.jpg';
-import { Organisation } from '../../types';
+import { Organisation } from '../../helpers/types';
 
 interface IProps {
   organisation: Organisation,

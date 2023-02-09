@@ -1,5 +1,5 @@
 import React from 'react';
-import { Organisation } from '../../types';
+import { Organisation } from '../../helpers/types';
 
 const orgs: Organisation[] = [
   {

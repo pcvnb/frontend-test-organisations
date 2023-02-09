@@ -2,6 +2,7 @@ import React from 'react';
 import FormInfo from '../FormInfo/FormInfo';
 import cls from './EditModal.module.css';
 import Title from '../Title/Title';
+import OrgTypesItem from '../OrgTypesItem/OrgTypesItem';
 
 interface IProps {
   isOpen: boolean,
@@ -15,8 +16,8 @@ function EditModal({ isOpen }: IProps) {
   return (
     <div className={cls.modal}>
       <Title>Редактировать данные организации</Title>
-      <ul>
-        {options.map((option) => <li>{option}</li>)}
+      <ul className={cls.orgTypes}>
+        {options.map((option) => <OrgTypesItem>{option}</OrgTypesItem>)}
       </ul>
 
       <FormInfo />

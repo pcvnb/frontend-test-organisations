@@ -1,7 +1,7 @@
 import React from 'react';
 import OrganisationsItem from '../OrganisationsItem/OrganisationsItem';
 import cls from './OrganisationsList.module.css';
-import { Organisation } from '../../types';
+import { Organisation } from '../../helpers/types';
 
 interface IProps {
   organisations: Organisation[],

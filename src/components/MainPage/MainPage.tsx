@@ -4,8 +4,8 @@ import OrganisationsList from '../OrganisationsList/OrganisationsList';
 import cls from './MainPage.module.css';
 import Title from '../Title/Title';
 import EditModal from '../EditModal/EditModal';
-import useModal from '../useModal';
-import { organisations } from '../../mock';
+import useModal from '../../helpers/lib/useModal';
+import { organisations } from '../../helpers/mock';
 
 function MainPage() {
   const { isOpen, toggle } = useModal();
