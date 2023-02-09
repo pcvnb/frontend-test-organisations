@@ -1,6 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-  font-family: 'Open Sans', serif;
-  font-size: 14px;
-  line-height: 19px;
-  color: #262626;
+    font-family: 'Open Sans', serif;
+    font-size: 14px;
+    line-height: 19px;
+    color: #262626;
 }

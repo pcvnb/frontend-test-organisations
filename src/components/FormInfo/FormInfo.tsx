@@ -1,5 +1,7 @@
 import React from 'react';
 import { Organisation } from '../../helpers/types';
+import Input from '../Input/Input';
+import LabelText from '../LabelText/LabelText';
 
 const orgs: Organisation[] = [
   {
@@ -70,15 +72,16 @@ const orgs: Organisation[] = [
 
 function FormInfo() {
   return (
-    <div>
-      <span>Введите ИИН/БИН</span>
-      <input type="" value={orgs[0].company_tin} />
-      <span>Введите название компании</span>
-      <div>
-        <div>ТОО</div>
-        <input type="" value={orgs[0].company_tin} />
-      </div>
-    </div>
+    <>
+      <LabelText>
+        Введите ИИН/БИН
+        <Input type="text" value={orgs[0].company_tin} disabled />
+      </LabelText>
+      <LabelText>
+        Введите название компании
+        <Input type="text" value={`ТОО        ${orgs[0].company_tin}`} disabled />
+      </LabelText>
+    </>
   );
 }
 

@@ -24,8 +24,7 @@ module.exports = {
     rules: {
         'react/react-in-jsx-scope': 'off',
         'import/prefer-default-export': 'off',
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
-
-
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        'react/require-default-props': 'off',
     },
 };
