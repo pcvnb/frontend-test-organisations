@@ -4,13 +4,20 @@ import cls from './OrganisationsList.module.css';
 import { Organisation } from '../../types';
 
 interface IProps {
-  orgs: Organisation[]
+  organisations: Organisation[],
+  toggle: () => void
 }
 
-function OrganisationsList({ orgs }: IProps) {
+function OrganisationsList({ organisations, toggle }: IProps) {
   return (
     <ul className={cls.list}>
-      {orgs.map((org) => <OrganisationsItem org={org} key={org.company_id} />)}
+      {organisations.map((organisation) => (
+        <OrganisationsItem
+          organisation={organisation}
+          key={organisation.company_id}
+          toggle={toggle}
+        />
+      ))}
     </ul>
   );
 }

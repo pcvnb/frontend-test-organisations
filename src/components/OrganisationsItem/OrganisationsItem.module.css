@@ -11,7 +11,9 @@
 .logo {
     width: 72px;
     height: 72px;
+    background-color: #fff;
 }
+
 .info {
     margin-left: 28px;
     display: flex;

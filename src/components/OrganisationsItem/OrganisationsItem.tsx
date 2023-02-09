@@ -2,24 +2,30 @@ import React from 'react';
 import cls from './OrganisationsItem.module.css';
 import EditIcon from '../../assets/edit.svg';
 import DeleteIcon from '../../assets/delete.svg';
-import EmptyJpg from '../../assets/emptyLogo.jpg';
+import EmptyLogo from '../../assets/emptyLogo.jpg';
 import { Organisation } from '../../types';
 
 interface IProps {
-  org: Organisation
+  organisation: Organisation,
+  toggle: () => void
 }
 
-function OrganisationsItem({ org }: IProps) {
+function OrganisationsItem({ organisation, toggle }: IProps) {
   return (
-
     <li className={cls.card}>
-      <img className={cls.logo} alt="organisation logo" src={org.logo ? org.logo : EmptyJpg} />
+      <img
+        className={cls.logo}
+        alt="organisation logo"
+        src={organisation.logo ? organisation.logo : EmptyLogo}
+      />
       <div className={cls.info}>
-        {`ТОО ${org.company_name}`}
-        <span>{`ИИН/БИН ${org.company_tin}`}</span>
+        {`ТОО ${organisation.company_name}`}
+        <span>{`ИИН/БИН ${organisation.company_tin}`}</span>
       </div>
       <div className={cls.icons}>
-        <img alt="edit organisation icon" src={EditIcon} />
+        <button type="button" onClick={toggle}>
+          <img alt="edit organisation icon" src={EditIcon} />
+        </button>
         <img alt="delete organisation icon" src={DeleteIcon} />
       </div>
     </li>
