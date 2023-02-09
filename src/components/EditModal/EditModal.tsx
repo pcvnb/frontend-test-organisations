@@ -1,17 +1,17 @@
-import React from 'react';
-import FormInfo from '../FormInfo/FormInfo';
+import React, { useState } from 'react';
 import cls from './EditModal.module.css';
 import Title from '../Title/Title';
-import OrgTypesItem from '../OrgTypesItem/OrgTypesItem';
-import TaxSystemSelect from '../TaxSystemSelect/TaxSystemSelect';
+import FormInputs from '../FormInputs/FormInputs';
+import { OrganisationTabs } from '../../helpers/types';
+import OrgTab from '../OrgTab/OrgTab';
 
 interface IProps {
   isOpen: boolean,
 }
 
-const options = ['ТОО', 'ИП', 'Прочие'];
-
 function EditModal({ isOpen }: IProps) {
+  const [currentTab, setCurrentTab] = useState<OrganisationTabs>(OrganisationTabs.too);
+
   if (!isOpen) return null;
 
   return (
@@ -19,13 +19,18 @@ function EditModal({ isOpen }: IProps) {
       <div className={cls.form}>
         <Title>Редактировать данные организации</Title>
         <ul className={cls.orgTypes}>
-          {options.map((option) => <OrgTypesItem>{option}</OrgTypesItem>)}
+          {Object.values(OrganisationTabs).map((tabType) => (
+            <OrgTab
+              currentTab={currentTab}
+              tabType={tabType}
+              setCurrentTab={setCurrentTab}
+              key={tabType}
+            >
+              {tabType}
+            </OrgTab>
+          ))}
         </ul>
-
-        <div className={cls.inputs}>
-          <TaxSystemSelect />
-          <FormInfo />
-        </div>
+        <FormInputs />
         <button type="submit" className={cls.button}>Сохранить</button>
       </div>
     </div>

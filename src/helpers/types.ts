@@ -6,3 +6,9 @@ export interface Organisation {
   'tax_id': number,
   'logo': string | null
 }
+
+export enum OrganisationTabs {
+  too = 'ТОО',
+  ip = 'ИП',
+  others = 'Прочие',
+}
