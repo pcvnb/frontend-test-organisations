@@ -1,16 +1,15 @@
 import cls from './TaxSystemSelect.module.css';
-import LabelText from '../LabelText/LabelText';
 
 function TaxSystemSelect() {
   return (
-    <LabelText>
+    <label className={cls.label} htmlFor="tax-select">
       Выберите систему налогообложения
-      <select className={cls.select}>
+      <select className={cls.select} id="taxSelect" name="tax-select">
         <option>Упрощенная система налогообложения</option>
         <option>Упрощенная система налогообложения</option>
         <option>Упрощенная система налогообложения</option>
       </select>
-    </LabelText>
+    </label>
   );
 }
 

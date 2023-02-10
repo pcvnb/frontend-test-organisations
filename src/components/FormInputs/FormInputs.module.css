@@ -1,7 +1,11 @@
-
 .inputs {
     display: flex;
     flex-direction: column;
     gap: 16px
 }
 
+label {
+    color: #808080;
+    font-size: 12px;
+    line-height: 16px;
+}

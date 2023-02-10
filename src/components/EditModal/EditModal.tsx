@@ -18,7 +18,7 @@ function EditModal({ isOpen }: IProps) {
     <div className={cls.modal}>
       <div className={cls.form}>
         <Title>Редактировать данные организации</Title>
-        <ul className={cls.orgTypes}>
+        <ul className={cls.orgTabs}>
           {Object.values(OrganisationTabs).map((tabType) => (
             <OrgTab
               currentTab={currentTab}
@@ -30,7 +30,7 @@ function EditModal({ isOpen }: IProps) {
             </OrgTab>
           ))}
         </ul>
-        <FormInputs />
+        <FormInputs currentTab={currentTab} />
         <button type="submit" className={cls.button}>Сохранить</button>
       </div>
     </div>

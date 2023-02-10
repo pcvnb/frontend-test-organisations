@@ -3,6 +3,8 @@
 }
 
 button {
+    border: none;
+    cursor: pointer;
     color: inherit;
 }
 

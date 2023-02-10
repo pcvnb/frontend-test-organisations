@@ -4,12 +4,26 @@ interface IProps {
   type?: string,
   value: string;
   disabled?: boolean;
+  name?: string;
+  id?: string;
 }
 
-function Input({ type = 'text', value, disabled = false }: IProps) {
+function Input({
+  type = 'text',
+  value,
+  disabled = false,
+  name,
+  id,
+}: IProps) {
   return (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-    <input type={type} value={value} className={cls.default} disabled={disabled} />
+    <input
+      type={type}
+      value={value}
+      className={cls.default}
+      disabled={disabled}
+      name={name}
+      id={id}
+    />
   );
 }
 

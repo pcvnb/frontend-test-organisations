@@ -4,3 +4,9 @@
     border: 1px solid #D1D1D1;
     border-radius: 5px;
 }
+
+.label {
+    color: #808080;
+    font-size: 12px;
+    line-height: 16px;
+}

@@ -12,3 +12,9 @@ export enum OrganisationTabs {
   ip = 'ИП',
   others = 'Прочие',
 }
+
+export enum Subtypes {
+  legalEntities = 'Юридические лица',
+  privatePractice = 'Частная практика',
+  individuals = 'Физические лица',
+}

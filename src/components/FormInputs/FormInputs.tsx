@@ -1,13 +1,18 @@
 import React from 'react';
 import cls from './FormInputs.module.css';
-import TaxSystemSelect from '../TaxSystemSelect/TaxSystemSelect';
-import FormInfo from '../FormInfo/FormInfo';
+import { OrganisationTabs } from '../../helpers/types';
+import OthersInputs from '../OthersInputs/OthersInputs';
+import DefaultInputs from '../DefaultInputs/DefaultInputs';
 
-function FormInputs() {
+interface IProps {
+  currentTab: OrganisationTabs;
+}
+
+function FormInputs({ currentTab }: IProps) {
   return (
     <div className={cls.inputs}>
-      <TaxSystemSelect />
-      <FormInfo />
+      {currentTab === OrganisationTabs.others && <OthersInputs currentTab={currentTab} />}
+      {currentTab !== OrganisationTabs.others && <DefaultInputs currentTab={currentTab} />}
     </div>
   );
 }
