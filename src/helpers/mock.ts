@@ -86,7 +86,7 @@ export const ownerships: Ownership[] = [
     short: 'Прочие юр. лица',
     is_jur: true,
     parent_id: null,
-    account_type: null,
+    account_type: 'else_jur',
   },
   {
     id: 3,

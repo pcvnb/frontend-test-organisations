@@ -31,25 +31,20 @@ export interface FormToSystem {
 }
 
 export enum OrganisationTabs {
-  too = 'ТОО',
-  ip = 'ИП',
-  others = 'Прочие',
+  too = 'too',
+  ip = 'ip',
+  others = 'others',
 }
 
 export enum Subtypes {
-  legalEntities = 'Юридические лица',
-  privatePractice = 'Частная практика',
-  individuals = 'Физические лица',
+  legalEntities = 'else_jur',
+  privatePractice = 'chp',
+  individuals = 'fiz',
+  none = 'none',
 }
 
 export enum ModalType {
   delete = 'delete',
   edit = 'edit',
   none = 'none',
-}
-
-export enum SubtypeToCode {
-  'Юридические лица' = 'too',
-  'Частная практика' = 'chp',
-  'Физические лица' = 'fiz',
 }

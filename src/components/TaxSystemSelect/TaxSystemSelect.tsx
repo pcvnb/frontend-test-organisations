@@ -29,7 +29,7 @@ function TaxSystemSelect({
         value={currentTaxSystemId}
       >
         {availableTaxSystems?.map((item) => (
-          <option value={item.id}>{item.full}</option>
+          <option value={item.id} key={item.id}>{item.full}</option>
         ))}
       </select>
     </label>

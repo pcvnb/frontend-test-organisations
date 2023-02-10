@@ -30,7 +30,7 @@ function MainPage() {
         />
         {isOpen && (
         <div className={classNames(cls.overlay, { [cls.showOverlay]: isOpen })}>
-          {modalType === ModalType.edit && <EditModal data={currentData} />}
+          {modalType === ModalType.edit && <EditModal data={currentData} close={close} />}
           {modalType === ModalType.delete && <DeleteModal closeModal={close} />}
         </div>
         )}

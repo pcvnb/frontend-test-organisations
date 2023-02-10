@@ -1,0 +1,12 @@
+.label {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.active {
+    color: #005DA1;
+}
+
+.input {
+    margin-right: 8px;
+}

@@ -1,15 +1,17 @@
 import React from 'react';
-import { OrganisationTabs } from '../../helpers/types';
+import { Organisation, OrganisationTabs } from '../../helpers/types';
 import Input from '../Input/Input';
-import { organisations } from '../../helpers/mock';
 import cls from './FormInfo.module.css';
+import { orgToText } from '../../helpers/constants';
 
 interface IProps {
   currentTab: OrganisationTabs;
   isIINonly?: boolean
+  data: Organisation | null
+
 }
 
-function FormInfo({ currentTab, isIINonly = false }: IProps) {
+function FormInfo({ currentTab, isIINonly = false, data }: IProps) {
   const iinText = `Введите ИИН${(isIINonly ? '' : '/БИН')}`;
 
   return (
@@ -19,7 +21,7 @@ function FormInfo({ currentTab, isIINonly = false }: IProps) {
         <Input
           className={cls.input}
           type="text"
-          value={organisations[0].company_tin}
+          value={data?.company_tin ?? ''}
           disabled
           name="iin"
           id="iin"
@@ -30,7 +32,9 @@ function FormInfo({ currentTab, isIINonly = false }: IProps) {
         <Input
           className={cls.input}
           type="text"
-          value={`${currentTab}        ${organisations[0].company_tin}`}
+          value={`${currentTab === OrganisationTabs.others
+            ? ''
+            : orgToText.get(currentTab)}        ${data?.company_name}`}
           disabled
           name="company-name"
           id="company-name"

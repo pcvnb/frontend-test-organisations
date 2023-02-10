@@ -1,6 +1,6 @@
 import React from 'react';
 import cls from './OwnershipSelect.module.css';
-import { Subtypes, SubtypeToCode } from '../../helpers/types';
+import { Subtypes } from '../../helpers/types';
 import { ownerships } from '../../helpers/mock';
 
 interface IProps {
@@ -15,12 +15,13 @@ function OwnershipSelect({
   setCurrentOwnershipId,
 }: IProps) {
   const filteredOwnerships = ownerships
-    .filter((item) => item.account_type === SubtypeToCode[currentSubtype]);
+    .filter((item) => item.account_type === currentSubtype);
 
   const onSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const id = Number(e.target.value);
     setCurrentOwnershipId(id);
   };
+
   return (
     <label className={cls.label} htmlFor="own-select">
       Выберите форму собственности
@@ -32,7 +33,7 @@ function OwnershipSelect({
         onChange={onSelect}
       >
         {filteredOwnerships.map((item) => (
-          <option value={item.id}>
+          <option value={item.id} key={item.id}>
             {item.full}
           </option>
         ))}
