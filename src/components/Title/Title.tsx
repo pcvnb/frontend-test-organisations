@@ -1,12 +1,14 @@
+import classNames from 'classnames';
 import cls from './Title.module.css';
 
 interface IProps {
-  children: string
+  children: string,
+  className?: string
 }
 
-function Title({ children }: IProps) {
+function Title({ children, className }: IProps) {
   return (
-    <h2 className={cls.title}>{children}</h2>
+    <h2 className={classNames(cls.title, className)}>{children}</h2>
   );
 }
 

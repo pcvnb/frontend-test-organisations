@@ -10,7 +10,9 @@
     width: 1280px;
 }
 
-.overlay {
+.title {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .showOverlay {

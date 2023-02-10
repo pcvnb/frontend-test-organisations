@@ -21,7 +21,7 @@ function MainPage() {
   return (
     <div className={cls.page}>
       <div className={cls.container}>
-        <Title>Мои организации</Title>
+        <Title className={cls.title}>Мои организации</Title>
         <OrganisationsList
           organisations={organisations}
           toggle={toggle}
