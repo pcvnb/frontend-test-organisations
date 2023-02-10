@@ -32,3 +32,10 @@
     padding: 12px 48px;
     background: #009A3E;
 }
+
+.inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}

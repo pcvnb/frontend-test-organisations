@@ -9,12 +9,18 @@ interface IProps {
   organisation: Organisation,
   toggle: () => void,
   setModalType: React.Dispatch<React.SetStateAction<ModalType>>
-
+  setCurrentData?: React.Dispatch<React.SetStateAction<Organisation | null>>
 }
 
-function OrganisationsItem({ organisation, toggle, setModalType }: IProps) {
+function OrganisationsItem({
+  organisation, toggle, setModalType, setCurrentData,
+}: IProps) {
   const onEdit = () => {
     setModalType(ModalType.edit);
+    if (setCurrentData) {
+      setCurrentData(organisation);
+    }
+
     toggle();
   };
 

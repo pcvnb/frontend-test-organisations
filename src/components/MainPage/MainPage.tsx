@@ -7,12 +7,12 @@ import EditModal from '../EditModal/EditModal';
 import useModal from '../../helpers/lib/useModal';
 import { organisations } from '../../helpers/mock';
 import DeleteModal from '../DeleteModal/DeleteModal';
-import { ModalType } from '../../helpers/types';
+import { ModalType, Organisation } from '../../helpers/types';
 
 function MainPage() {
   const { isOpen, toggle, close } = useModal();
   const [modalType, setModalType] = useState(ModalType.none);
-
+  const [currentData, setCurrentData] = useState<Organisation | null>(null);
   useEffect(() => {
     if (!isOpen) {
       setModalType(ModalType.none);
@@ -26,12 +26,13 @@ function MainPage() {
           organisations={organisations}
           toggle={toggle}
           setModalType={setModalType}
+          setCurrentData={setCurrentData}
         />
         {isOpen && (
-          <div className={classNames(cls.overlay, { [cls.showOverlay]: isOpen })}>
-            {modalType === ModalType.edit && <EditModal />}
-            {modalType === ModalType.delete && <DeleteModal closeModal={close} />}
-          </div>
+        <div className={classNames(cls.overlay, { [cls.showOverlay]: isOpen })}>
+          {modalType === ModalType.edit && <EditModal data={currentData} />}
+          {modalType === ModalType.delete && <DeleteModal closeModal={close} />}
+        </div>
         )}
       </div>
     </div>
