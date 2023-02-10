@@ -23,20 +23,3 @@
     flex-direction: column;
     gap: 12px;
 }
-
-.icons {
-    display: flex;
-    gap: 20px;
-    margin-left: auto;
-    align-items: center;
-}
-
-.button {
-    width: 24px;
-    height: 24px;
-    transition: all .2s ease-in-out;
-}
-
-.button:hover {
-    transform: scale(1.1);
-}

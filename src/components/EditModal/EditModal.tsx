@@ -2,11 +2,11 @@ import React, { useMemo, useState } from 'react';
 import cls from './EditModal.module.css';
 import Title from '../Title/Title';
 import { Organisation, OrganisationTabs, Subtypes } from '../../helpers/types';
-import OrgTab from '../OrgTab/OrgTab';
 import OthersInputs from '../OthersInputs/OthersInputs';
 import DefaultInputs from '../DefaultInputs/DefaultInputs';
-import { mainIdsMap, orgToText } from '../../helpers/constants';
+import { mainIdsMap } from '../../helpers/constants';
 import { useFormToSystemsStore, useOwnershipsStore, useTaxSystemsStore } from '../../zustand/store';
+import OrgTabs from '../OrgTabs/OrgTabs';
 
 interface IProps {
   currentOrg: Organisation;
@@ -39,18 +39,7 @@ function EditModal({ currentOrg, close }: IProps) {
     <div className={cls.modal}>
       <div className={cls.form}>
         <Title>Редактировать данные организации</Title>
-        <ul className={cls.orgTabs}>
-          {Object.values(OrganisationTabs).map((tabType) => (
-            <OrgTab
-              currentTab={currentTab}
-              tabType={tabType}
-              setCurrentTab={setCurrentTab}
-              key={tabType}
-            >
-              {orgToText.get(tabType) as string}
-            </OrgTab>
-          ))}
-        </ul>
+        <OrgTabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
         <div className={cls.inputs}>
           {currentTab === OrganisationTabs.others
             ? (
