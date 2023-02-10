@@ -5,13 +5,13 @@ import { ModalType } from '../../helpers/types';
 import { useOrgsStore } from '../../zustand/store';
 
 interface IProps {
-  toggle: () => void
+  openModal: () => void
   setModalType: React.Dispatch<React.SetStateAction<ModalType>>
   setCurrentOrgId: React.Dispatch<React.SetStateAction<number>>
 }
 
 function OrganisationsList({
-  toggle, setModalType, setCurrentOrgId,
+  openModal, setModalType, setCurrentOrgId,
 }: IProps) {
   const { orgs } = useOrgsStore();
   return (
@@ -20,7 +20,7 @@ function OrganisationsList({
         <OrganisationsItem
           organisation={organisation}
           key={organisation.company_id}
-          toggle={toggle}
+          openModal={openModal}
           setModalType={setModalType}
           setCurrentOrgId={setCurrentOrgId}
         />

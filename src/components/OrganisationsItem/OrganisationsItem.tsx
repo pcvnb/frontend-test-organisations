@@ -6,13 +6,13 @@ import OrganisationsItemButtons from '../OrganisationsItemButtons/OrganisationsI
 
 interface IProps {
   organisation: Organisation,
-  toggle: () => void,
+  openModal: () => void,
   setModalType: React.Dispatch<React.SetStateAction<ModalType>>
   setCurrentOrgId: React.Dispatch<React.SetStateAction<number>>
 }
 
 function OrganisationsItem({
-  organisation, toggle, setModalType, setCurrentOrgId,
+  organisation, openModal, setModalType, setCurrentOrgId,
 }: IProps) {
   return (
     <li className={cls.card}>
@@ -29,7 +29,7 @@ function OrganisationsItem({
 
       <OrganisationsItemButtons
         organisation={organisation}
-        toggle={toggle}
+        openModal={openModal}
         setModalType={setModalType}
         setCurrentOrgId={setCurrentOrgId}
       />

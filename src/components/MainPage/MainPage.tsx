@@ -19,7 +19,7 @@ function MainPage() {
     fetchData: fetchFormToSystems,
     isLoading: areFormToSystemsLoading,
   } = useFormToSystemsStore();
-  const { isOpen, toggle, close } = useModal();
+  const { isOpen, open: openModal, close } = useModal();
   const [modalType, setModalType] = useState(ModalType.none);
   const [currentOrgId, setCurrentOrgId] = useState<number>(-1);
 
@@ -30,7 +30,6 @@ function MainPage() {
     return orgs
       .find((org) => (org.company_id === currentOrgId));
   }, [currentOrgId]);
-
   useEffect(() => {
     if (!isOpen) {
       setModalType(ModalType.none);
@@ -51,17 +50,17 @@ function MainPage() {
       <div className={cls.container}>
         <Title className={cls.title}>Мои организации</Title>
         <OrganisationsList
-          toggle={toggle}
+          openModal={openModal}
           setModalType={setModalType}
           setCurrentOrgId={setCurrentOrgId}
         />
         {isOpen && currentOrg && (
-          <div className={classNames(cls.overlay, { [cls.showOverlay]: isOpen })}>
-            {modalType === ModalType.edit
-                    && <EditModal currentOrg={currentOrg} close={close} />}
-            {modalType === ModalType.delete
-                    && <DeleteModal closeModal={close} currentOrg={currentOrg} />}
-          </div>
+        <div className={classNames(cls.overlay, { [cls.showOverlay]: isOpen })}>
+          {modalType === ModalType.edit
+                            && <EditModal currentOrg={currentOrg} close={close} />}
+          {modalType === ModalType.delete
+                            && <DeleteModal closeModal={close} currentOrg={currentOrg} />}
+        </div>
         )}
       </div>
     </div>

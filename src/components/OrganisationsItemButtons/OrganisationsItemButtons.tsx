@@ -6,23 +6,24 @@ import { ModalType, Organisation } from '../../helpers/types';
 
 interface IProps {
   organisation: Organisation,
-  toggle: () => void,
+  openModal: () => void,
   setModalType: React.Dispatch<React.SetStateAction<ModalType>>
   setCurrentOrgId: React.Dispatch<React.SetStateAction<number>>
 }
 
 function OrganisationsItemButtons({
-  organisation, toggle, setModalType, setCurrentOrgId,
+  organisation, openModal, setModalType, setCurrentOrgId,
 }: IProps) {
   const onEdit = () => {
     setModalType(ModalType.edit);
     setCurrentOrgId(organisation.company_id);
-    toggle();
+    openModal();
   };
 
   const onDelete = () => {
     setModalType(ModalType.delete);
-    toggle();
+    setCurrentOrgId(organisation.company_id);
+    openModal();
   };
 
   return (
