@@ -14,6 +14,7 @@ function FormInfo({ currentTab }: IProps) {
       <label className={cls.label} htmlFor="iin">
         Введите ИИН/БИН
         <Input
+          className={cls.input}
           type="text"
           value={organisations[0].company_tin}
           disabled
@@ -24,6 +25,7 @@ function FormInfo({ currentTab }: IProps) {
       <label className={cls.label} htmlFor="company-name">
         Введите название компании
         <Input
+          className={cls.input}
           type="text"
           value={`${currentTab}        ${organisations[0].company_tin}`}
           disabled

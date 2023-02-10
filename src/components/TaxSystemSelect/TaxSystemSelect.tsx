@@ -4,7 +4,7 @@ function TaxSystemSelect() {
   return (
     <label className={cls.label} htmlFor="tax-select">
       Выберите систему налогообложения
-      <select className={cls.select} id="taxSelect" name="tax-select">
+      <select className={cls.select} id="tax-select" name="tax-select">
         <option>Упрощенная система налогообложения</option>
         <option>Упрощенная система налогообложения</option>
         <option>Упрощенная система налогообложения</option>

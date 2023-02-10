@@ -23,7 +23,7 @@ function OrganisationsItem({ organisation, toggle }: IProps) {
         <span>{`ИИН/БИН ${organisation.company_tin}`}</span>
       </div>
       <div className={cls.icons}>
-        <button type="button" onClick={toggle}>
+        <button type="button" className={cls.button} onClick={toggle}>
           <img alt="edit organisation icon" src={EditIcon} />
         </button>
         <img alt="delete organisation icon" src={DeleteIcon} />

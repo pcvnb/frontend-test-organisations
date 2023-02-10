@@ -1,13 +1,17 @@
-import { useState } from 'react';
 import classNames from 'classnames';
+import React from 'react';
 import cls from './SubtypesFieldset.module.css';
 import { Subtypes } from '../../helpers/types';
 
-function SubtypesFieldset() {
-  const [currentSubtype, setCurrentSubtype] = useState(Subtypes.legalEntities);
+interface IProps {
+  currentSubtype: Subtypes
+  setCurrentSubtype: React.Dispatch<React.SetStateAction<Subtypes>>
+}
 
-  const onRadio = (e: any) => {
-    setCurrentSubtype(e.target.value);
+function SubtypesFieldset({ currentSubtype, setCurrentSubtype }: IProps) {
+  const onRadio = (e: React.MouseEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+    setCurrentSubtype(target.value as Subtypes);
   };
 
   return (

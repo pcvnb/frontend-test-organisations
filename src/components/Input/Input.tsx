@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import cls from './Input.module.css';
 
 interface IProps {
@@ -6,6 +7,7 @@ interface IProps {
   disabled?: boolean;
   name?: string;
   id?: string;
+  className?: string;
 }
 
 function Input({
@@ -14,12 +16,13 @@ function Input({
   disabled = false,
   name,
   id,
+  className,
 }: IProps) {
   return (
     <input
       type={type}
       value={value}
-      className={cls.default}
+      className={classNames(cls.default, className)}
       disabled={disabled}
       name={name}
       id={id}
