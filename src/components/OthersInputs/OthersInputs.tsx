@@ -16,7 +16,7 @@ interface IProps {
   currentTaxSystemId: number,
   setCurrentTaxSystemId: React.Dispatch<React.SetStateAction<number>>,
   availableTaxSystems: TaxSystem[]
-  data: Organisation | null
+  currentOrg: Organisation
 }
 
 function OthersInputs({
@@ -28,7 +28,7 @@ function OthersInputs({
   currentTaxSystemId,
   setCurrentTaxSystemId,
   availableTaxSystems,
-  data,
+  currentOrg,
 }: IProps) {
   const isOwnershipSelectVisible = (
     currentSubtype === Subtypes.legalEntities
@@ -69,7 +69,7 @@ function OthersInputs({
       <FormInfo
         currentTab={currentTab}
         isIINonly={isIINonly}
-        data={data}
+        currentOrg={currentOrg}
       />
     </>
   );

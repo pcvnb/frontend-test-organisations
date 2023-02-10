@@ -9,18 +9,15 @@ interface IProps {
   organisation: Organisation,
   toggle: () => void,
   setModalType: React.Dispatch<React.SetStateAction<ModalType>>
-  setCurrentData?: React.Dispatch<React.SetStateAction<Organisation | null>>
+  setCurrentOrgId: React.Dispatch<React.SetStateAction<number>>
 }
 
 function OrganisationsItem({
-  organisation, toggle, setModalType, setCurrentData,
+  organisation, toggle, setModalType, setCurrentOrgId,
 }: IProps) {
   const onEdit = () => {
     setModalType(ModalType.edit);
-    if (setCurrentData) {
-      setCurrentData(organisation);
-    }
-
+    setCurrentOrgId(organisation.company_id);
     toggle();
   };
 
@@ -47,7 +44,6 @@ function OrganisationsItem({
         <button type="button" className={cls.button} onClick={onDelete}>
           <img alt="delete organisation icon" src={DeleteIcon} />
         </button>
-
       </div>
     </li>
   );

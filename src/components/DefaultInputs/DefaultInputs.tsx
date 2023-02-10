@@ -8,7 +8,7 @@ interface IProps {
   currentTaxSystemId: number,
   setCurrentTaxSystemId: React.Dispatch<React.SetStateAction<number>>,
   availableTaxSystems: TaxSystem[]
-  data: Organisation | null;
+  currentOrg: Organisation;
 }
 
 function DefaultInputs({
@@ -16,7 +16,7 @@ function DefaultInputs({
   currentTaxSystemId,
   setCurrentTaxSystemId,
   availableTaxSystems,
-  data,
+  currentOrg,
 }: IProps) {
   return (
     <>
@@ -25,7 +25,7 @@ function DefaultInputs({
         currentTaxSystemId={currentTaxSystemId}
         setCurrentTaxSystemId={setCurrentTaxSystemId}
       />
-      <FormInfo currentTab={currentTab} data={data} />
+      <FormInfo currentTab={currentTab} currentOrg={currentOrg} />
     </>
   );
 }

@@ -7,11 +7,11 @@ import { orgToText } from '../../helpers/constants';
 interface IProps {
   currentTab: OrganisationTabs;
   isIINonly?: boolean
-  data: Organisation | null
+  currentOrg: Organisation
 
 }
 
-function FormInfo({ currentTab, isIINonly = false, data }: IProps) {
+function FormInfo({ currentTab, isIINonly = false, currentOrg }: IProps) {
   const iinText = `Введите ИИН${(isIINonly ? '' : '/БИН')}`;
 
   return (
@@ -21,7 +21,7 @@ function FormInfo({ currentTab, isIINonly = false, data }: IProps) {
         <Input
           className={cls.input}
           type="text"
-          value={data?.company_tin ?? ''}
+          value={currentOrg?.company_tin ?? ''}
           disabled
           name="iin"
           id="iin"
@@ -34,7 +34,7 @@ function FormInfo({ currentTab, isIINonly = false, data }: IProps) {
           type="text"
           value={`${currentTab === OrganisationTabs.others
             ? ''
-            : orgToText.get(currentTab)}        ${data?.company_name}`}
+            : orgToText.get(currentTab)}        ${currentOrg?.company_name}`}
           disabled
           name="company-name"
           id="company-name"

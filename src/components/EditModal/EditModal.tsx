@@ -5,17 +5,20 @@ import { Organisation, OrganisationTabs, Subtypes } from '../../helpers/types';
 import OrgTab from '../OrgTab/OrgTab';
 import OthersInputs from '../OthersInputs/OthersInputs';
 import DefaultInputs from '../DefaultInputs/DefaultInputs';
-import { formsToSystems, ownerships, taxSystems } from '../../helpers/mock';
 import { mainIdsMap, orgToText } from '../../helpers/constants';
+import { useFormToSystemsStore, useOwnershipsStore, useTaxSystemsStore } from '../../zustand/store';
 
 interface IProps {
-  data: Organisation | null;
+  currentOrg: Organisation;
   close: () => void;
 }
 
-function EditModal({ data, close }: IProps) {
-  const orgOwnership = ownerships.find((item) => item.id === data?.form_id);
-  const orgTaxSystem = taxSystems.find((item) => item.id === data?.tax_id);
+function EditModal({ currentOrg, close }: IProps) {
+  const { ownerships } = useOwnershipsStore();
+  const { taxSystems } = useTaxSystemsStore();
+  const { formsToSystems } = useFormToSystemsStore();
+  const orgOwnership = ownerships.find((item) => item.id === currentOrg?.form_id);
+  const orgTaxSystem = taxSystems.find((item) => item.id === currentOrg?.tax_id);
 
   const [currentTab, setCurrentTab] = useState<OrganisationTabs>(OrganisationTabs.too);
   const [currentSubtype, setCurrentSubtype] = useState<Subtypes>(Subtypes.none);
@@ -25,24 +28,13 @@ function EditModal({ data, close }: IProps) {
     ? mainIdsMap.get(currentTab)
     : mainIdsMap.get(currentSubtype);
 
-  console.log(
-    '(taxId), File: EditModal.tsx, Line 27',
-    taxId,
-  );
   const availableTaxSystemsIds = useMemo(() => formsToSystems
     .filter((item) => (item.form_ownership_id === taxId))
     .map((item) => item.tax_system_id), [taxId]);
 
-  console.log(
-    '(availableTaxSystemsIds), File: EditModal.tsx, Line 35',
-    availableTaxSystemsIds,
-  );
   const availableTaxSystems = useMemo(() => taxSystems
     .filter((item) => availableTaxSystemsIds.includes(item.id)), [taxId]);
-  console.log(
-    '(availableTaxSystems), File: EditModal.tsx, Line 43',
-    availableTaxSystems,
-  );
+
   return (
     <div className={cls.modal}>
       <div className={cls.form}>
@@ -71,7 +63,7 @@ function EditModal({ data, close }: IProps) {
                 setCurrentTaxSystemId={setCurrentTaxSystemId}
                 setCurrentOwnershipId={setCurrentOwnershipId}
                 availableTaxSystems={availableTaxSystems}
-                data={data}
+                currentOrg={currentOrg}
               />
             )
             : (
@@ -80,7 +72,7 @@ function EditModal({ data, close }: IProps) {
                 availableTaxSystems={availableTaxSystems}
                 currentTaxSystemId={currentTaxSystemId}
                 setCurrentTaxSystemId={setCurrentTaxSystemId}
-                data={data}
+                currentOrg={currentOrg}
               />
             )}
         </div>

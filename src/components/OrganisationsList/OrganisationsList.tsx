@@ -1,27 +1,28 @@
 import React from 'react';
 import OrganisationsItem from '../OrganisationsItem/OrganisationsItem';
 import cls from './OrganisationsList.module.css';
-import { ModalType, Organisation } from '../../helpers/types';
+import { ModalType } from '../../helpers/types';
+import { useOrgsStore } from '../../zustand/store';
 
 interface IProps {
-  organisations: Organisation[],
   toggle: () => void
   setModalType: React.Dispatch<React.SetStateAction<ModalType>>
-  setCurrentData: React.Dispatch<React.SetStateAction<Organisation | null>>
+  setCurrentOrgId: React.Dispatch<React.SetStateAction<number>>
 }
 
 function OrganisationsList({
-  organisations, toggle, setModalType, setCurrentData,
+  toggle, setModalType, setCurrentOrgId,
 }: IProps) {
+  const { orgs } = useOrgsStore();
   return (
     <ul className={cls.list}>
-      {organisations.map((organisation) => (
+      {orgs.map((organisation) => (
         <OrganisationsItem
           organisation={organisation}
           key={organisation.company_id}
           toggle={toggle}
           setModalType={setModalType}
-          setCurrentData={setCurrentData}
+          setCurrentOrgId={setCurrentOrgId}
         />
       ))}
     </ul>
