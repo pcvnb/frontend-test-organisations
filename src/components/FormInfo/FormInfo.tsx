@@ -6,13 +6,16 @@ import cls from './FormInfo.module.css';
 
 interface IProps {
   currentTab: OrganisationTabs;
+  isIINonly?: boolean
 }
 
-function FormInfo({ currentTab }: IProps) {
+function FormInfo({ currentTab, isIINonly = false }: IProps) {
+  const iinText = `Введите ИИН${(isIINonly ? '' : '/БИН')}`;
+
   return (
     <>
       <label className={cls.label} htmlFor="iin">
-        Введите ИИН/БИН
+        {iinText}
         <Input
           className={cls.input}
           type="text"

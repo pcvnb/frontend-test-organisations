@@ -12,15 +12,28 @@ interface IProps {
 function OthersInputs({ currentTab }: IProps) {
   const [currentSubtype, setCurrentSubtype] = useState(Subtypes.legalEntities);
 
+  const isOwnershipSelectVisible = (
+    currentSubtype === Subtypes.legalEntities
+        || currentSubtype === Subtypes.privatePractice
+  );
+  const isTaxSystemSelectVisible = currentSubtype === Subtypes.legalEntities;
+  const isIINonly = (
+    currentSubtype === Subtypes.individuals
+        || currentSubtype === Subtypes.privatePractice
+  );
+
   return (
     <>
       <SubtypesFieldset
         currentSubtype={currentSubtype}
         setCurrentSubtype={setCurrentSubtype}
       />
-      <OwnershipSelect />
-      <TaxSystemSelect />
-      <FormInfo currentTab={currentTab} />
+      {isOwnershipSelectVisible && <OwnershipSelect />}
+      {isTaxSystemSelectVisible && <TaxSystemSelect />}
+      <FormInfo
+        currentTab={currentTab}
+        isIINonly={isIINonly}
+      />
     </>
   );
 }

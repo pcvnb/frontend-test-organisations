@@ -18,3 +18,9 @@ export enum Subtypes {
   privatePractice = 'Частная практика',
   individuals = 'Физические лица',
 }
+
+export enum ModalType {
+  delete = 'delete',
+  edit = 'edit',
+  none = 'none',
+}

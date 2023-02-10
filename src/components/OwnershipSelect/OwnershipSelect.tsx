@@ -2,7 +2,7 @@ import cls from './OwnershipSelect.module.css';
 
 function OwnershipSelect() {
   return (
-    <label htmlFor="own-select">
+    <label className={cls.label} htmlFor="own-select">
       Выберите форму собственности
       <select id="own-select" className={cls.select} name="own-select">
         <option value="qwe">qwe</option>

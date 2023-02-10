@@ -5,14 +5,8 @@ import FormInputs from '../FormInputs/FormInputs';
 import { OrganisationTabs } from '../../helpers/types';
 import OrgTab from '../OrgTab/OrgTab';
 
-interface IProps {
-  isOpen: boolean,
-}
-
-function EditModal({ isOpen }: IProps) {
+function EditModal() {
   const [currentTab, setCurrentTab] = useState<OrganisationTabs>(OrganisationTabs.too);
-
-  if (!isOpen) return null;
 
   return (
     <div className={cls.modal}>

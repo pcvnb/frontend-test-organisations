@@ -3,14 +3,26 @@ import cls from './OrganisationsItem.module.css';
 import EditIcon from '../../assets/edit.svg';
 import DeleteIcon from '../../assets/delete.svg';
 import EmptyLogo from '../../assets/emptyLogo.jpg';
-import { Organisation } from '../../helpers/types';
+import { ModalType, Organisation } from '../../helpers/types';
 
 interface IProps {
   organisation: Organisation,
-  toggle: () => void
+  toggle: () => void,
+  setModalType: React.Dispatch<React.SetStateAction<ModalType>>
+
 }
 
-function OrganisationsItem({ organisation, toggle }: IProps) {
+function OrganisationsItem({ organisation, toggle, setModalType }: IProps) {
+  const onEdit = () => {
+    setModalType(ModalType.edit);
+    toggle();
+  };
+
+  const onDelete = () => {
+    setModalType(ModalType.delete);
+    toggle();
+  };
+
   return (
     <li className={cls.card}>
       <img
@@ -23,10 +35,13 @@ function OrganisationsItem({ organisation, toggle }: IProps) {
         <span>{`ИИН/БИН ${organisation.company_tin}`}</span>
       </div>
       <div className={cls.icons}>
-        <button type="button" className={cls.button} onClick={toggle}>
+        <button type="button" className={cls.button} onClick={onEdit}>
           <img alt="edit organisation icon" src={EditIcon} />
         </button>
-        <img alt="delete organisation icon" src={DeleteIcon} />
+        <button type="button" className={cls.button} onClick={onDelete}>
+          <img alt="delete organisation icon" src={DeleteIcon} />
+        </button>
+
       </div>
     </li>
   );
