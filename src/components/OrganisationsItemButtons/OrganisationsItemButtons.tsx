@@ -29,10 +29,10 @@ function OrganisationsItemButtons({
   return (
     <div className={cls.icons}>
       <button type="button" className={cls.button} onClick={onEdit}>
-        <img alt="edit organisation icon" src={EditIcon} />
+        <img className={cls.icon} alt="edit organisation icon" src={EditIcon} />
       </button>
       <button type="button" className={cls.button} onClick={onDelete}>
-        <img alt="delete organisation icon" src={DeleteIcon} />
+        <img className={cls.icon} alt="delete organisation icon" src={DeleteIcon} />
       </button>
     </div>
   );

@@ -5,12 +5,25 @@
     align-items: center;
 }
 
+
 .button {
     width: 24px;
     height: 24px;
     transition: all .2s ease-in-out;
 }
 
+.icon {
+    width: inherit;
+    height: inherit;
+}
+
 .button:hover {
     transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .button {
+        width: 20px;
+        height: 20px;
+    }
 }
