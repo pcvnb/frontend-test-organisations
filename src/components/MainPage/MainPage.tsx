@@ -1,15 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import classNames from 'classnames';
-import DeleteModal from '@components/DeleteModal/DeleteModal';
 import { ModalType } from '@helpers/types';
 import Title from '@components/Title/Title';
-import EditModal from '@components/EditModal/EditModal';
 import useModal from '@helpers/lib/useModal';
 import OrganisationsList from '@components/OrganisationsList/OrganisationsList';
 import {
   useFormToSystemsStore, useOrgsStore, useOwnershipsStore, useTaxSystemsStore,
 } from '@zustand/store';
-import useKeyEffect from '@helpers/lib/useKeyEffect';
+import Modal from '@components/Modal/Modal';
 import cls from './MainPage.module.css';
 
 function MainPage() {
@@ -39,23 +36,14 @@ function MainPage() {
     fetchFormToSystems();
   }, [fetchFormToSystems, fetchOrgs, fetchOwnerships, fetchTaxSystems]);
 
-  useEffect(() => {
-    if (!isOpen) {
-      setModalType(ModalType.none);
-    }
-  }, [isOpen]);
-  useKeyEffect('Escape', close);
+  const isDataLoading = areOrgsLoading
+        || areOwnershipsLoading
+        || areTaxSystemsLoading
+        || areFormToSystemsLoading;
 
-  if (areOrgsLoading || areOwnershipsLoading || areTaxSystemsLoading || areFormToSystemsLoading) {
+  if (isDataLoading) {
     return <div>Loading...</div>;
   }
-
-  const onOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { classList } = e.target as HTMLDivElement;
-    if ([...classList].includes(cls.overlay)) {
-      close();
-    }
-  };
 
   return (
     <div className={cls.page}>
@@ -66,17 +54,15 @@ function MainPage() {
           setModalType={setModalType}
           setCurrentOrgId={setCurrentOrgId}
         />
+
         {isOpen && currentOrg && (
-        <div
-          className={classNames(cls.overlay, { [cls.showOverlay]: isOpen })}
-          role="dialog"
-          onClick={onOverlayClick}
-        >
-          {modalType === ModalType.edit
-                            && <EditModal currentOrg={currentOrg} close={close} />}
-          {modalType === ModalType.delete
-                            && <DeleteModal closeModal={close} currentOrg={currentOrg} />}
-        </div>
+        <Modal
+          isOpen={isOpen}
+          modalType={modalType}
+          setModalType={setModalType}
+          currentOrg={currentOrg}
+          close={close}
+        />
         )}
       </div>
     </div>
