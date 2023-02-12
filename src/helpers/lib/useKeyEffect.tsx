@@ -12,7 +12,7 @@ const useKeyEffect = (key: KeyboardEvent['key'], onKey: () => void) => {
     return () => {
       window.removeEventListener('keydown', handleKey);
     };
-  }, []);
+  }, [key, onKey]);
 };
 
 export default useKeyEffect;

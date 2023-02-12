@@ -10,6 +10,6 @@ const useFocusEffect = ({ ref, condition = true }: IProps) => {
     if (condition && ref.current) {
       ref.current.focus();
     }
-  }, []);
+  }, [condition, ref]);
 };
 export default useFocusEffect;

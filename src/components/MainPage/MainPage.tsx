@@ -30,19 +30,20 @@ function MainPage() {
     }
     return orgs
       .find((org) => (org.company_id === currentOrgId));
-  }, [currentOrgId]);
+  }, [currentOrgId, orgs]);
+
+  useEffect(() => {
+    fetchOrgs();
+    fetchOwnerships();
+    fetchTaxSystems();
+    fetchFormToSystems();
+  }, [fetchFormToSystems, fetchOrgs, fetchOwnerships, fetchTaxSystems]);
 
   useEffect(() => {
     if (!isOpen) {
       setModalType(ModalType.none);
     }
-
-    fetchOrgs();
-    fetchOwnerships();
-    fetchTaxSystems();
-    fetchFormToSystems();
-  }, []);
-
+  }, [isOpen]);
   useKeyEffect('Escape', close);
 
   if (areOrgsLoading || areOwnershipsLoading || areTaxSystemsLoading || areFormToSystemsLoading) {

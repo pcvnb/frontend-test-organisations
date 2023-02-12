@@ -30,10 +30,13 @@ function EditModal({ currentOrg, close }: IProps) {
 
   const availableTaxSystemsIds = useMemo(() => formsToSystems
     .filter((item) => (item.form_ownership_id === taxId))
-    .map((item) => item.tax_system_id), [taxId]);
+    .map((item) => item.tax_system_id), [formsToSystems, taxId]);
 
-  const availableTaxSystems = useMemo(() => taxSystems
-    .filter((item) => availableTaxSystemsIds.includes(item.id)), [taxId]);
+  const availableTaxSystems = useMemo(
+    () => taxSystems
+      .filter((item) => availableTaxSystemsIds.includes(item.id)),
+    [availableTaxSystemsIds, taxSystems],
+  );
 
   const onSave = () => {
     close();

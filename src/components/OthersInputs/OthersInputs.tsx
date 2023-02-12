@@ -42,7 +42,7 @@ function OthersInputs({
 
   useEffect(() => {
     setCurrentSubtype(Subtypes.legalEntities);
-  }, []);
+  }, [setCurrentSubtype]);
 
   return (
     <>
