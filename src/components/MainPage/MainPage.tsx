@@ -45,6 +45,12 @@ function MainPage() {
     return <div>Loading...</div>;
   }
 
+  const onOverlayClick = (e: any) => {
+    const { classList } = e.target;
+    if ([...classList].includes(cls.overlay)) {
+      close();
+    }
+  };
   return (
     <div className={cls.page}>
       <div className={cls.container}>
@@ -55,7 +61,10 @@ function MainPage() {
           setCurrentOrgId={setCurrentOrgId}
         />
         {isOpen && currentOrg && (
-        <div className={classNames(cls.overlay, { [cls.showOverlay]: isOpen })}>
+        <div
+          className={classNames(cls.overlay, { [cls.showOverlay]: isOpen })}
+          onClick={onOverlayClick}
+        >
           {modalType === ModalType.edit
                             && <EditModal currentOrg={currentOrg} close={close} />}
           {modalType === ModalType.delete
