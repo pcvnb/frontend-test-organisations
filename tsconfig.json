@@ -18,12 +18,28 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ],
+      "@helpers/*": [
+        "helpers/*"
+      ],
+      "@zustand/*": [
+        "zustand/*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ]
+    }
   },
   "include": [
     ".eslintrc.cjs",
     "src",
-    "vite.config.ts"
+    "vite.config.ts",
+    "src/**/*"
   ],
   "references": [
     {
