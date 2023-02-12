@@ -1,6 +1,6 @@
 import React from 'react';
 import { Subtypes } from '@helpers/types';
-import { ownerships } from '@helpers/mock';
+import { useOwnershipsStore } from '@zustand/store';
 import cls from './OwnershipSelect.module.css';
 
 interface IProps {
@@ -14,6 +14,7 @@ function OwnershipSelect({
   currentOwnershipId,
   setCurrentOwnershipId,
 }: IProps) {
+  const { ownerships } = useOwnershipsStore();
   const filteredOwnerships = ownerships
     .filter((item) => item.account_type === currentSubtype);
 
