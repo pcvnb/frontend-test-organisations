@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useRef } from 'react';
 import { OrganisationTabs } from '@helpers/types';
+import useFocusEffect from '@helpers/lib/useFocusEffect';
 import cls from './OrgTab.module.css';
 
 interface IProps {
@@ -16,10 +17,17 @@ function OrgTab({
   setCurrentTab,
   currentTab,
 }: IProps) {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.target as HTMLButtonElement;
     setCurrentTab(target.value as OrganisationTabs);
   };
+
+  useFocusEffect({
+    ref: buttonRef,
+    condition: tabType === OrganisationTabs.too,
+  });
 
   return (
     <li
@@ -30,6 +38,7 @@ function OrgTab({
         type="button"
         onClick={onClick}
         value={tabType}
+        ref={buttonRef}
       >
         {children}
       </button>

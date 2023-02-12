@@ -35,6 +35,10 @@ function EditModal({ currentOrg, close }: IProps) {
   const availableTaxSystems = useMemo(() => taxSystems
     .filter((item) => availableTaxSystemsIds.includes(item.id)), [taxId]);
 
+  const onSave = () => {
+    close();
+  };
+
   return (
     <div className={cls.modal}>
       <div className={cls.form}>
@@ -65,7 +69,7 @@ function EditModal({ currentOrg, close }: IProps) {
               />
             )}
         </div>
-        <button type="submit" className={cls.button} onClick={close}>Сохранить</button>
+        <button type="submit" className={cls.button} onClick={onSave}>Сохранить</button>
       </div>
     </div>
   );

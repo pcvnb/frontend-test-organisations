@@ -9,6 +9,7 @@ import OrganisationsList from '@components/OrganisationsList/OrganisationsList';
 import {
   useFormToSystemsStore, useOrgsStore, useOwnershipsStore, useTaxSystemsStore,
 } from '@zustand/store';
+import useKeyEffect from '@helpers/lib/useKeyEffect';
 import cls from './MainPage.module.css';
 
 function MainPage() {
@@ -30,6 +31,7 @@ function MainPage() {
     return orgs
       .find((org) => (org.company_id === currentOrgId));
   }, [currentOrgId]);
+
   useEffect(() => {
     if (!isOpen) {
       setModalType(ModalType.none);
@@ -41,16 +43,19 @@ function MainPage() {
     fetchFormToSystems();
   }, []);
 
+  useKeyEffect('Escape', close);
+
   if (areOrgsLoading || areOwnershipsLoading || areTaxSystemsLoading || areFormToSystemsLoading) {
     return <div>Loading...</div>;
   }
 
-  const onOverlayClick = (e: any) => {
-    const { classList } = e.target;
+  const onOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { classList } = e.target as HTMLDivElement;
     if ([...classList].includes(cls.overlay)) {
       close();
     }
   };
+
   return (
     <div className={cls.page}>
       <div className={cls.container}>
@@ -63,6 +68,7 @@ function MainPage() {
         {isOpen && currentOrg && (
         <div
           className={classNames(cls.overlay, { [cls.showOverlay]: isOpen })}
+          role="dialog"
           onClick={onOverlayClick}
         >
           {modalType === ModalType.edit
