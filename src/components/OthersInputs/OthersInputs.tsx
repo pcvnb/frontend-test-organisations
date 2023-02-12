@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import SubtypesFieldset from '../SubtypesFieldset/SubtypesFieldset';
-import TaxSystemSelect from '../TaxSystemSelect/TaxSystemSelect';
-import FormInfo from '../FormInfo/FormInfo';
+import SubtypesFieldset from '@components/SubtypesFieldset/SubtypesFieldset';
+import TaxSystemSelect from '@components/TaxSystemSelect/TaxSystemSelect';
+import FormInfo from '@components/FormInfo/FormInfo';
 import {
   Organisation, OrganisationTabs, Subtypes, TaxSystem,
-} from '../../helpers/types';
-import OwnershipSelect from '../OwnershipSelect/OwnershipSelect';
+} from '@helpers/types';
+import OwnershipSelect from '@components/OwnershipSelect/OwnershipSelect';
 
 interface IProps {
   currentTab: OrganisationTabs;

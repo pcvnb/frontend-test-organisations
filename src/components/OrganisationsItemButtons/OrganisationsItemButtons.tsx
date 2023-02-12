@@ -1,8 +1,8 @@
 import React from 'react';
+import EditIcon from '@assets/edit.svg';
+import DeleteIcon from '@assets/delete.svg';
+import { ModalType, Organisation } from '@helpers/types';
 import cls from './OrganisationsItemButtons.module.css';
-import EditIcon from '../../assets/edit.svg';
-import DeleteIcon from '../../assets/delete.svg';
-import { ModalType, Organisation } from '../../helpers/types';
 
 interface IProps {
   organisation: Organisation,

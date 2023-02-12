@@ -1,4 +1,4 @@
-import { OrganisationTabs, Subtypes } from './types';
+import { OrganisationTabs, Subtypes } from '@helpers/types';
 
 export const mainIdsMap = new Map<string, number>([
   ['too', 1],

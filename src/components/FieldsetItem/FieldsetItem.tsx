@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import React from 'react';
+import { Subtypes } from '@helpers/types';
+import { SubtypesToText } from '@helpers/constants';
 import cls from './FieldsetItem.module.css';
-import { Subtypes } from '../../helpers/types';
-import { SubtypesToText } from '../../helpers/constants';
 
 interface IProps {
   currentSubtype: Subtypes;

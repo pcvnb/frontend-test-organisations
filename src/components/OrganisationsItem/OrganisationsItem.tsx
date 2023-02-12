@@ -1,8 +1,8 @@
 import React from 'react';
+import EmptyLogo from '@assets/emptyLogo.jpg';
+import { ModalType, Organisation } from '@helpers/types';
+import OrganisationsItemButtons from '@components/OrganisationsItemButtons/OrganisationsItemButtons';
 import cls from './OrganisationsItem.module.css';
-import EmptyLogo from '../../assets/emptyLogo.jpg';
-import { ModalType, Organisation } from '../../helpers/types';
-import OrganisationsItemButtons from '../OrganisationsItemButtons/OrganisationsItemButtons';
 
 interface IProps {
   organisation: Organisation,

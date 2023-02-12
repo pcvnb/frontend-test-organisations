@@ -1,8 +1,8 @@
+import { Organisation } from '@helpers/types';
+import { useOrgsStore } from '@zustand/store';
+import Title from '@components/Title/Title';
+import CloseIcon from '@assets/close.svg';
 import cls from './DeleteModal.module.css';
-import Title from '../Title/Title';
-import CloseIcon from '../../assets/close.svg';
-import { Organisation } from '../../helpers/types';
-import { useOrgsStore } from '../../zustand/store';
 
 interface IProps {
   closeModal: () => void,

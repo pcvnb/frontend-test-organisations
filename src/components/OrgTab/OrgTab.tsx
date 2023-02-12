@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
+import { OrganisationTabs } from '@helpers/types';
 import cls from './OrgTab.module.css';
-import { OrganisationTabs } from '../../helpers/types';
 
 interface IProps {
   children: string;

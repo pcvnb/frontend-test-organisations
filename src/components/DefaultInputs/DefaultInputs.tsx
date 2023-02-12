@@ -1,7 +1,7 @@
 import React from 'react';
-import FormInfo from '../FormInfo/FormInfo';
-import { Organisation, OrganisationTabs, TaxSystem } from '../../helpers/types';
-import TaxSystemSelect from '../TaxSystemSelect/TaxSystemSelect';
+import FormInfo from '@components/FormInfo/FormInfo';
+import { Organisation, OrganisationTabs, TaxSystem } from '@helpers/types';
+import TaxSystemSelect from '@components/TaxSystemSelect/TaxSystemSelect';
 
 interface IProps {
   currentTab: OrganisationTabs;

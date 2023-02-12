@@ -1,6 +1,6 @@
 import {
   FormToSystem, Organisation, Ownership, TaxSystem,
-} from './types';
+} from '@helpers/types';
 
 export const organisations: Organisation[] = [
   {

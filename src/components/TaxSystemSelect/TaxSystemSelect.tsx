@@ -1,6 +1,6 @@
 import React from 'react';
+import { TaxSystem } from '@helpers/types';
 import cls from './TaxSystemSelect.module.css';
-import { TaxSystem } from '../../helpers/types';
 
 interface IProps {
   currentTaxSystemId: number,

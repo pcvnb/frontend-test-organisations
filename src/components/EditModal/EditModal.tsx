@@ -1,12 +1,12 @@
 import React, { useMemo, useState } from 'react';
+import Title from '@components/Title/Title';
+import { Organisation, OrganisationTabs, Subtypes } from '@helpers/types';
+import { mainIdsMap } from '@helpers/constants';
+import { useFormToSystemsStore, useOwnershipsStore, useTaxSystemsStore } from '@zustand/store';
+import OthersInputs from '@components/OthersInputs/OthersInputs';
+import DefaultInputs from '@components/DefaultInputs/DefaultInputs';
+import OrgTabs from '@components/OrgTabs/OrgTabs';
 import cls from './EditModal.module.css';
-import Title from '../Title/Title';
-import { Organisation, OrganisationTabs, Subtypes } from '../../helpers/types';
-import OthersInputs from '../OthersInputs/OthersInputs';
-import DefaultInputs from '../DefaultInputs/DefaultInputs';
-import { mainIdsMap } from '../../helpers/constants';
-import { useFormToSystemsStore, useOwnershipsStore, useTaxSystemsStore } from '../../zustand/store';
-import OrgTabs from '../OrgTabs/OrgTabs';
 
 interface IProps {
   currentOrg: Organisation;

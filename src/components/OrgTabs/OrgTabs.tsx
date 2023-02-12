@@ -1,8 +1,8 @@
 import React from 'react';
+import { OrganisationTabs } from '@helpers/types';
+import OrgTab from '@components/OrgTab/OrgTab';
+import { orgToText } from '@helpers/constants';
 import cls from './OrgTabs.module.css';
-import { OrganisationTabs } from '../../helpers/types';
-import OrgTab from '../OrgTab/OrgTab';
-import { orgToText } from '../../helpers/constants';
 
 interface IProps {
   currentTab: OrganisationTabs,

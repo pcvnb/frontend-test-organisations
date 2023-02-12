@@ -1,15 +1,15 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
-import OrganisationsList from '../OrganisationsList/OrganisationsList';
-import cls from './MainPage.module.css';
-import Title from '../Title/Title';
-import EditModal from '../EditModal/EditModal';
-import useModal from '../../helpers/lib/useModal';
-import DeleteModal from '../DeleteModal/DeleteModal';
-import { ModalType } from '../../helpers/types';
+import DeleteModal from '@components/DeleteModal/DeleteModal';
+import { ModalType } from '@helpers/types';
+import Title from '@components/Title/Title';
+import EditModal from '@components/EditModal/EditModal';
+import useModal from '@helpers/lib/useModal';
+import OrganisationsList from '@components/OrganisationsList/OrganisationsList';
 import {
   useFormToSystemsStore, useOrgsStore, useOwnershipsStore, useTaxSystemsStore,
-} from '../../zustand/store';
+} from '@zustand/store';
+import cls from './MainPage.module.css';
 
 function MainPage() {
   const { fetchData: fetchOrgs, isLoading: areOrgsLoading, orgs } = useOrgsStore();

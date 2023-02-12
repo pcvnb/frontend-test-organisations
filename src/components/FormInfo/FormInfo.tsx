@@ -1,8 +1,8 @@
 import React from 'react';
-import { Organisation, OrganisationTabs } from '../../helpers/types';
-import Input from '../Input/Input';
+import { Organisation, OrganisationTabs } from '@helpers/types';
+import Input from '@components/Input/Input';
+import { orgToText } from '@helpers/constants';
 import cls from './FormInfo.module.css';
-import { orgToText } from '../../helpers/constants';
 
 interface IProps {
   currentTab: OrganisationTabs;

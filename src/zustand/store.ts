@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import {
   FormToSystem, Organisation, Ownership, TaxSystem,
-} from '../helpers/types';
-import { API } from '../helpers/api';
+} from '@helpers/types';
+import { API } from '@helpers/api';
 
 interface BaseState {
   isLoading: boolean;

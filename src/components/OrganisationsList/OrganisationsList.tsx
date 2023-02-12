@@ -1,8 +1,8 @@
 import React from 'react';
-import OrganisationsItem from '../OrganisationsItem/OrganisationsItem';
+import OrganisationsItem from '@components/OrganisationsItem/OrganisationsItem';
+import { ModalType } from '@helpers/types';
+import { useOrgsStore } from '@zustand/store';
 import cls from './OrganisationsList.module.css';
-import { ModalType } from '../../helpers/types';
-import { useOrgsStore } from '../../zustand/store';
 
 interface IProps {
   openModal: () => void

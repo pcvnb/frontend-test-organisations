@@ -1,7 +1,7 @@
 import React from 'react';
+import { Subtypes } from '@helpers/types';
+import { ownerships } from '@helpers/mock';
 import cls from './OwnershipSelect.module.css';
-import { Subtypes } from '../../helpers/types';
-import { ownerships } from '../../helpers/mock';
 
 interface IProps {
   currentSubtype: Subtypes;

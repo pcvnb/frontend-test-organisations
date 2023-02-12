@@ -1,7 +1,7 @@
 import React from 'react';
+import { Subtypes } from '@helpers/types';
+import FieldsetItem from '@components/FieldsetItem/FieldsetItem';
 import cls from './SubtypesFieldset.module.css';
-import { Subtypes } from '../../helpers/types';
-import FieldsetItem from '../FieldsetItem/FieldsetItem';
 
 interface IProps {
   currentSubtype: Subtypes
